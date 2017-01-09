@@ -9,11 +9,11 @@ feature 'Automate test - Create a new profile' do
     session.fill_in 'Password', with: '123456'
     session.click_button 'Log in'
 
-    sleep 2
+    sleep 3
 
     session.visit 'http://127.0.0.1:3000/profiles'
 
-    sleep 2
+    sleep 3
 
     session.find_link('New Profile').click
 
@@ -30,11 +30,11 @@ feature 'Automate test - Create a new profile' do
     session.fill_in 'Address', with: FFaker::Address.street_address
     session.fill_in 'Phone', with: FFaker::PhoneNumber.phone_number
 
-    sleep 2
+    sleep 3
 
     session.click_button 'Create Profile'
 
-    sleep 2
+    sleep 3
 
     session.save_and_open_screenshot
 
