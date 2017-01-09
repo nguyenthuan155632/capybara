@@ -15,6 +15,28 @@ feature 'Create a new profile' do
         click_button 'Create Profile'
 
         expect(page).to have_content 'Profile was successfully created'
+
+        # page.has_content?('Profile was successfully created')
+
+
+        ##############
+        # Scoping
+        ##############
+        
+        visit profiles_path
+
+        within('table') do
+        end
+
+        within('#profiles-table', text: "Should be a caption") do
+        end
+
+        within_table('profiles-table') do
+        end
+
+        within_table(text: 'Should be a caption') do 
+        end
+        
     end
   end
 end
