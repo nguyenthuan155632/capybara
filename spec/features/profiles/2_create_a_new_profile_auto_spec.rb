@@ -19,16 +19,22 @@ feature 'Automate test - Create a new profile' do
 
     session.fill_in 'Fullname', with: FFaker::Name.name
     session.fill_in 'Email', with: FFaker::Internet.email
-    # fill_in "Birthdate", with: Date.today
+    
+    session.select "1992", from: "profile[birthdate(1i)]"
+    session.select "October", from: "profile[birthdate(2i)]"
+    session.select "20", from: "profile[birthdate(3i)]"
+    session.select "22", from: "profile[birthdate(4i)]"
+    session.select "30", from: "profile[birthdate(5i)]"
+
     session.check('Is male')
     session.fill_in 'Address', with: FFaker::Address.street_address
     session.fill_in 'Phone', with: FFaker::PhoneNumber.phone_number
 
-    sleep 1
+    sleep 2
 
     session.click_button 'Create Profile'
 
-    sleep 1
+    sleep 2
 
     session.save_and_open_screenshot
 

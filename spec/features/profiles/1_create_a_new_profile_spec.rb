@@ -7,7 +7,13 @@ feature 'Create a new profile' do
 
         fill_in 'Fullname', with: FFaker::Name.name
         fill_in 'Email', with: FFaker::Internet.email
-        # fill_in "Birthdate", with: Date.today
+
+        select "1992", from: "profile[birthdate(1i)]"
+        select "October", from: "profile[birthdate(2i)]"
+        select "20", from: "profile[birthdate(3i)]"
+        select "22", from: "profile[birthdate(4i)]"
+        select "30", from: "profile[birthdate(5i)]"
+
         check('Is male')
         fill_in 'Address', with: FFaker::Address.street_address
         fill_in 'Phone', with: FFaker::PhoneNumber.phone_number
@@ -22,7 +28,7 @@ feature 'Create a new profile' do
         ##############
         # Scoping
         ##############
-        
+
         visit profiles_path
 
         within('table') do
