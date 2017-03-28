@@ -5,6 +5,8 @@ feature 'Automate test - Devise demo', js: true do
     session = Capybara::Session.new(:selenium)
 
     session.visit '/users/sign_up'
+    p "====================================="
+    p session.driver.current_url
 
     session.fill_in 'Email', with: FFaker::Internet.email
     session.fill_in 'Password', with: '123456'
