@@ -4,7 +4,7 @@ feature 'Automate test - Devise demo', js: true do
   scenario 'sign out' do
     session = Capybara::Session.new(:selenium)
 
-    session.visit 'http://127.0.0.1:3000/users/sign_in'
+    session.visit '/users/sign_in'
 
     sleep 3
 
