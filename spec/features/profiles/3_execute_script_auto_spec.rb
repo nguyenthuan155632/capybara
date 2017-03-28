@@ -10,23 +10,15 @@ feature 'Automate test - Execute script', js: true do
       session.fill_in 'Password', with: '123456'
       session.click_button 'Log in'
 
-      sleep 3
-
       session.visit '/profiles'
 
       # session.first("table tbody tr")
       session.find('table tbody tr', match: :first)
-      sleep 3
       session.execute_script '$("table tbody tr:first-child").css("background-color", "green")'
 
-      sleep 3
-
       session.find('table tbody tr:first-child td a[data-method="delete"]').click
-      sleep 3
       session.driver.browser.switch_to.alert.accept
       
-      sleep 3
-
       expect(session).to have_content 'Profile was successfully destroyed'
     end
   end

@@ -6,18 +6,12 @@ feature 'Automate test - Devise demo', js: true do
 
     session.visit '/users/sign_up'
 
-    sleep 3
-
     session.fill_in 'Email', with: FFaker::Internet.email
     session.fill_in 'Password', with: '123456'
     session.fill_in 'Password confirmation', with: '123456'
 
-    sleep 3
-
     session.click_button 'Sign up'
 
     expect(session).to have_content 'Welcome! You have signed up successfully.'
-
-    sleep 3
   end
 end
