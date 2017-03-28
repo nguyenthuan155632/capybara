@@ -49,7 +49,7 @@ group :development, :test do
   gem "capybara-webkit"
   gem "selenium-webdriver"
   gem "capybara-screenshot"
-  gem "chromedriver-helper"
+  gem "chromedriver-helper" unless ENV.key?('CIRCLECI')
 
   gem 'ffaker'
 end
